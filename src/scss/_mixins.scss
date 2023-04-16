@@ -1,0 +1,92 @@
+@mixin breakpoint($point) {
+  @if $point==desktop-wide {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  } @else if $point==desktop {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  } @else if $point==laptop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $point==tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $point==mobile {
+    @media (min-width: 576px) {
+      @content;
+    }
+  }
+}
+
+@function theme-color($name) {
+  @return map-get($map: $colors, $key: $name);
+}
+
+@mixin max-box($width) {
+  max-width: $width;
+  width: 100%;
+}
+
+@mixin circle($length) {
+  width: $length;
+  height: $length;
+  border-radius: 50%;
+}
+@mixin cube($length) {
+  width: $length;
+  height: $length;
+}
+
+@mixin flicker($animationName, $duration: 0.1s) {
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-name: $animationName;
+  animation-timing-function: linear;
+}
+
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Opera 12
+  background-image: linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+}
+
+@keyframes fadeOut {
+  0% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}
+
+%text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin text-truncate-multi-line($line) {
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line; /* start showing ellipsis when 3rd line is reached */
+}

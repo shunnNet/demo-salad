@@ -1,0 +1,41 @@
+@each $name, $hex in $colors {
+  .color-#{$name} {
+    color: #{$hex};
+  }
+
+  .bg-#{$name} {
+    background-color: #{$hex};
+  }
+}
+
+.img--fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
