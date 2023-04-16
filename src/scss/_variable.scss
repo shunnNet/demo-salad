@@ -4,11 +4,19 @@ $font: 'proxima-nova', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
   'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 $colors: (
-  primary: #b82a06,
-  secondary: #3c0c00,
-  light-gray: #dcdcdc,
+  primary: #26c6d0,
+  secondary: #ffbc58,
+  third: #ee6c8a,
+  primary-dark-01: #585880,
   light: #ffffff,
-  dark: #000000,
-  primary-light: #ffb3a4,
-  diamond: #ffc612,
+  dark: #262626,
 );
+
+@function theme($name) {
+  @return map-get($map: $colors, $key: $name);
+}
+
+$body-bg-color: theme(light);
+$body-font-color: theme(dark);
+
+$border-radius: 12px;

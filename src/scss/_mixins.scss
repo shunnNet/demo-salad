@@ -19,6 +19,10 @@
     @media (min-width: 576px) {
       @content;
     }
+  } @else if $port==mobile-mini {
+    @media (min-width: 375px) {
+      @content;
+    }
   }
 }
 
