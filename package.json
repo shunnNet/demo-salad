@@ -13,10 +13,8 @@
   "dependencies": {
     "@vueuse/components": "^9.4.0",
     "@vueuse/core": "^9.3.0",
-    "masonry-layout": "^4.2.2",
     "swiper": "^9.2.2",
-    "vue": "^3.2.37",
-    "vue-masonry": "^0.16.0"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
