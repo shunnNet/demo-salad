@@ -22,6 +22,10 @@ const props = defineProps({
     type: Number,
     default: 24,
   },
+  tag: {
+    type: String,
+    default: 'div',
+  },
 })
 
 let orbital = ref(null)
@@ -85,7 +89,7 @@ watch(
 </script>
 
 <template>
-  <div ref="orbital" :progress="progress" :length="length">
+  <component :is="tag" ref="orbital" :progress="progress" :length="length">
     <slot :progress="progress" :is-active="progress > 0" :frame="frame" />
-  </div>
+  </component>
 </template>

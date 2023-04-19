@@ -1,6 +1,8 @@
-<script setup></script>
+<script setup>
+import ScrollTrigger from '../ScrollTrigger.vue'
+</script>
 <template>
-  <div class="section-awards-wrap">
+  <ScrollTrigger v-slot="{ isActive }" :start="100" class="section-awards-wrap">
     <section class="section-awards">
       <div class="section-awards__body">
         <h2 class="section-awards__title">
@@ -14,7 +16,10 @@
           Donec id dignissim nunc.
         </p>
       </div>
-      <div class="section-awards__list">
+      <div
+        class="section-awards__list slide-right-appear-transition"
+        :class="{ active: isActive }"
+      >
         <img
           class="img--fluid"
           v-for="i in 4"
@@ -23,7 +28,7 @@
         />
       </div>
     </section>
-  </div>
+  </ScrollTrigger>
 </template>
 <style lang="scss">
 .section-awards-wrap {

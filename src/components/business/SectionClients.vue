@@ -1,6 +1,8 @@
-<script setup></script>
+<script setup>
+import ScrollTrigger from '../ScrollTrigger.vue'
+</script>
 <template>
-  <section class="section-clients">
+  <div class="section-clients">
     <h2 class="section-clients__title">
       <span class="section-clients__title-text">ABOUT DIGISALAD</span>
     </h2>
@@ -14,8 +16,14 @@
       consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus
       neque eros nec lacus. Cras lobortis molestie faucibus.
     </p>
-    <div class="section-clients__img"></div>
-  </section>
+    <ScrollTrigger
+      :start="200"
+      v-slot="{ isActive }"
+      class="section-clients__img-wrap"
+    >
+      <div class="section-clients__img" :class="{ active: isActive }" />
+    </ScrollTrigger>
+  </div>
 </template>
 <style lang="scss">
 .section-clients {
@@ -79,16 +87,26 @@
       max-width: 1007px;
     }
   }
+  &__img-wrap {
+    max-width: 1040px;
+    width: 100%;
+  }
   &__img {
     background-image: url('@/assets/img/client-list.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    max-width: 1040px;
     width: 100%;
     height: 360px;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+
     @include breakpoint('tablet') {
       height: 720px;
+    }
+
+    &.active {
+      opacity: 1;
     }
   }
 }

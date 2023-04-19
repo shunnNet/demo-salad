@@ -1,4 +1,5 @@
 <script setup>
+import ScrollTrigger from '@/components/ScrollTrigger.vue'
 defineProps({
   text: {
     type: String,
@@ -12,11 +13,17 @@ defineProps({
     type: String,
     default: 'primary',
   },
+  animate: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
 <template>
-  <component
+  <ScrollTrigger
+    v-slot="{ isActive }"
+    :start="400"
     :is="tag"
     class="highlight-text"
     :class="{
@@ -27,8 +34,9 @@ defineProps({
       <slot></slot>
     </div>
     <span v-else class="highlight-text__text" v-text="text" />
-    <div class="highlight-text__line" />
-  </component>
+
+    <div class="highlight-text__line" :class="{ hide: animate && !isActive }" />
+  </ScrollTrigger>
 </template>
 <style lang="scss">
 .highlight-text {
@@ -49,6 +57,12 @@ defineProps({
     height: 6px;
     background-color: theme(primary);
     z-index: 0;
+    transition: 0.5s all;
+    transform: scaleX(1);
+    transform-origin: left;
+    &.hide {
+      transform: scaleX(0);
+    }
   }
 }
 

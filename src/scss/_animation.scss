@@ -29,3 +29,23 @@
   -webkit-animation-name: zoomInCustom;
   animation-name: zoomInCustom;
 }
+
+.slide-left-appear-transition {
+  transform: translate3d(-200px, 0, 0);
+  opacity: 0;
+  transition: all 0.5s;
+  &.active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.slide-right-appear-transition {
+  transform: translate3d(200px, 0, 0);
+  opacity: 0;
+  transition: all 0.5s;
+  &.active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

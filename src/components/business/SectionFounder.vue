@@ -1,41 +1,50 @@
-<script setup></script>
+<script setup>
+import ScrollTrigger from '@/components/ScrollTrigger.vue'
+</script>
 <template>
-  <div class="section-founder-wrap">
-    <div class="section-founder">
-      <figure class="section-founder__figure">
-        <img
-          class="section-founder__figure-img"
-          src="@/assets/img/TonyNG.png"
-          alt="Digi Salad Founder Tony NG"
-        />
-        <figcaption>
-          <span class="section-founder__figure-name">TONY NG</span>
-          <span class="section-founder__figure-title">
-            Founder & Creative Director
-          </span>
-        </figcaption>
-      </figure>
-      <div class="section-founder__body">
-        <img
-          src="@/assets/svg/icon-quote.svg?url"
-          class="section-founder__quote"
-          width="90"
-          height="64"
-          loading="lazy"
-        />
-        <p class="section-founder__description">
-          A great digital work isn’t about designing beautiful pages purely. It
-          is about context - how do we deliver the
-          <span class="color-secondary bold"
-            >right experience to the right person at the right time.</span
-          >
-          The most important thing is that your work can engage customers at
-          anytime, anywhere and let users experience an entire amazing digital
-          journey.
-        </p>
+  <ScrollTrigger v-slot="{ isActive }">
+    <div class="section-founder-wrap">
+      <div class="section-founder">
+        <div
+          class="section-founder__inner slide-left-appear-transition"
+          :class="{ active: isActive }"
+        >
+          <figure class="section-founder__figure">
+            <img
+              class="section-founder__figure-img"
+              src="@/assets/img/TonyNG.png"
+              alt="Digi Salad Founder Tony NG"
+            />
+            <figcaption>
+              <span class="section-founder__figure-name">TONY NG</span>
+              <span class="section-founder__figure-title">
+                Founder & Creative Director
+              </span>
+            </figcaption>
+          </figure>
+          <div class="section-founder__body">
+            <img
+              src="@/assets/svg/icon-quote.svg?url"
+              class="section-founder__quote"
+              width="90"
+              height="64"
+              loading="lazy"
+            />
+            <p class="section-founder__description">
+              A great digital work isn’t about designing beautiful pages purely.
+              It is about context - how do we deliver the
+              <span class="color-secondary bold"
+                >right experience to the right person at the right time.</span
+              >
+              The most important thing is that your work can engage customers at
+              anytime, anywhere and let users experience an entire amazing
+              digital journey.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </ScrollTrigger>
 </template>
 <style lang="scss">
 .section-founder-wrap {
@@ -62,10 +71,6 @@
   background-position: center;
   background-attachment: fixed;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   color: theme(light);
   padding: 40px 40px;
   @include breakpoint('tablet') {
@@ -74,10 +79,17 @@
   }
 
   @include breakpoint('desktop') {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
     padding: 100px;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include breakpoint('desktop') {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 
   &__figure {

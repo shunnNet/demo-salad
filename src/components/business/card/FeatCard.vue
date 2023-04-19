@@ -78,6 +78,39 @@ $feat-card-theme: theme(light);
     color: $feat-card-theme;
     border-radius: $border-radius;
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      background-color: $feat-card-theme;
+      color: theme(dark);
+    }
+  }
+  .feat-card__image {
+    animation-name: FoodJumpJump;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @include breakpoint('mobile') {
+    .feat-card__image {
+      animation-name: none;
+    }
+
+    &:hover {
+      .feat-card__image {
+        animation-name: FoodJumpJump;
+      }
+    }
+  }
+}
+@keyframes FoodJumpJump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 </style>

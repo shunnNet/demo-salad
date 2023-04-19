@@ -8,16 +8,21 @@ import Logo from '@/assets/svg/logo.svg'
 <template>
   <div class="section-intro">
     <section class="section-intro__wrap">
-      <div class="section-intro__slogan">
-        <Logo class="section-intro__slogan-logo" />
-        <h2 class="section-intro__slogan-title">
-          WE CREATE<br />
-          AMAZING<br />
-          <HightlightText>
-            <span class="point"> DIGITAIL EXPERIENCES </span>
-          </HightlightText>
-        </h2>
-      </div>
+      <ComposingAnime
+        slide-in-left
+        :fade-in="{ style: { animationDelay: '0.5s' } }"
+      >
+        <div class="section-intro__slogan">
+          <Logo class="section-intro__slogan-logo" />
+          <h2 class="section-intro__slogan-title">
+            WE CREATE<br />
+            AMAZING<br />
+            <HightlightText>
+              <span class="point"> DIGITAIL EXPERIENCES </span>
+            </HightlightText>
+          </h2>
+        </div>
+      </ComposingAnime>
       <footer class="section-intro__footer">
         <img
           src="@/assets/img/salad.png"
@@ -28,16 +33,25 @@ import Logo from '@/assets/svg/logo.svg'
         <div class="section-intro__footer-taste">TASTE US NOW!</div>
       </footer>
       <aside class="section-intro__aside">
-        <div class="section-intro__aside-text">DIGITAL AGENCY</div>
+        <ComposingAnime
+          :slide-in-left="{ style: { animationDelay: '0.5s' } }"
+          :fade-in="{ style: { animationDelay: '0.8s' } }"
+        >
+          <div class="section-intro__aside-text">DIGITAL AGENCY</div>
+        </ComposingAnime>
       </aside>
       <div class="section-intro__down-line"></div>
       <div class="section-intro__down-line-stretch"></div>
     </section>
-    <VideoBackground
-      video-id="8_4JRK4QkqU"
-      class="section-intro__bg"
-      :preview-image="previewImageUrl"
-    />
+    <div class="section-intro__bg-wrap">
+      <ComposingAnime fade-in>
+        <VideoBackground
+          video-id="8_4JRK4QkqU"
+          class="section-intro__bg"
+          :preview-image="previewImageUrl"
+        />
+      </ComposingAnime>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -47,13 +61,19 @@ import Logo from '@/assets/svg/logo.svg'
   height: 100vh;
   background-color: #e5e5e5;
   color: theme(light);
-  &__bg {
+  &__bg-wrap {
     position: absolute;
     top: 0;
     @include radius($border-radius, [top-right top-left]);
     @include cube(100%);
     filter: brightness(0.5);
+    background-color: #000;
     z-index: 0;
+  }
+  &__bg {
+    @include cube(100%);
+    position: absolute;
+    top: 0;
   }
   &__wrap {
     position: relative;

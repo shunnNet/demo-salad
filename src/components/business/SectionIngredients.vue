@@ -193,7 +193,7 @@ const cardList = computed(() => {
     display: grid;
     grid-template-columns: minmax(320px, 360px);
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     margin-bottom: 40px;
 
     @include breakpoint('tablet') {

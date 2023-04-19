@@ -70,7 +70,12 @@ const brickItems = computed(() => {
 <template>
   <div class="menu">
     <div class="menu__wrap">
-      <DropAnimation v-for="b in brickItems" :key="b.title" class="brick-space">
+      <DropAnimation
+        v-for="(b, i) in brickItems"
+        :key="b.title"
+        class="brick-space"
+        :delay="i * 0.1"
+      >
         <div :class="`brick brick--${b.theme}`">
           <div v-if="b.image" class="brick__image">
             <img

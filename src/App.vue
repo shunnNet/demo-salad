@@ -9,7 +9,6 @@ import SectionFounder from '@/components/business/SectionFounder.vue'
 import SectionShowcase from '@/components/business/SectionShowcase.vue'
 </script>
 <template>
-  <div id="test"></div>
   <BaseLayout>
     <SectionIntro />
     <SectionAbout />
@@ -20,13 +19,3 @@ import SectionShowcase from '@/components/business/SectionShowcase.vue'
     <SectionShowcase />
   </BaseLayout>
 </template>
-
-<style lang="scss">
-#test {
-  transform: rotateX(180deg);
-  display: grid;
-}
-::placeholder {
-  color: gray;
-}
-</style>

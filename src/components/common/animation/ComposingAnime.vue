@@ -14,12 +14,26 @@ export default {
       type: [Boolean, Object],
       default: false,
     },
+    slideInLeft: {
+      type: [Boolean, Object],
+      default: false,
+    },
+    fadeIn: {
+      type: [Boolean, Object],
+      default: false,
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
   },
   setup(props, { slots }) {
     const animation = new Map([
       ['bounceInDown', false],
       ['rubberBand', false],
       ['zoomInCustom', false],
+      ['slideInLeft', false],
+      ['fadeIn', false],
     ])
 
     const r = (h, stack) => {
@@ -28,7 +42,9 @@ export default {
         return h(
           'div',
           {
-            class: ['animate__animated', `animate__${stack[0].name}`],
+            class: props.active
+              ? ['animate__animated', `animate__${stack[0].name}`]
+              : [],
             ...attrs,
           },
           [r(h, stack.slice(1))]
