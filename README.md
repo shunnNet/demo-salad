@@ -1,7 +1,17 @@
-# Vue 3 + Vite
+# Demo - Salad Home Page
+For practice.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Deploy on Github Page. Here is the [Demo page](https://shunnnet.github.io/demo-salad).
 
-## Recommended IDE Setup
+Basically made by Vue 3 + Vite.
+And use Swiper for the block at the bottom of page.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## How to use?
+
+```sh
+# Run Repository
+npm run dev
+
+# Build 
+npm run build
+```
