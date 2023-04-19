@@ -69,6 +69,7 @@ import Logo from '@/assets/svg/logo.svg'
     filter: brightness(0.5);
     background-color: #000;
     z-index: 0;
+    overflow: hidden;
   }
   &__bg {
     @include cube(100%);
