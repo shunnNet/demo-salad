@@ -74,6 +74,7 @@ import ScrollTrigger from '../ScrollTrigger.vue'
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   @include breakpoint('tablet') {
     top: -216px;

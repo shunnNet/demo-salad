@@ -17,7 +17,7 @@ import Logo from '@/assets/svg/logo.svg'
           <h2 class="section-intro__slogan-title">
             WE CREATE<br />
             AMAZING<br />
-            <HightlightText>
+            <HightlightText :animate="false">
               <span class="point"> DIGITAIL EXPERIENCES </span>
             </HightlightText>
           </h2>
