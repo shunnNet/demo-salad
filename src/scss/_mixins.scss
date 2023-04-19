@@ -94,3 +94,22 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line; /* start showing ellipsis when 3rd line is reached */
 }
+
+@mixin bg-image($url, $size: cover, $position: center) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: $size;
+  background-position: $position;
+}
+
+%h2 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+@mixin radius($radius: $border-radius, $mutes: []) {
+  border-radius: $radius;
+  @each $name in $mutes {
+    border-#{$name}-radius: 0;
+  }
+}

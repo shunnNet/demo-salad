@@ -39,3 +39,17 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.bold {
+  font-weight: 700;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-inline-mb {
+  @include breakpoint('mobile') {
+    display: inline;
+  }
+}

@@ -26,6 +26,7 @@ export default {
 
     const loadPlayer = async () => {
       const YT = await loadYTIframeApi()
+
       if (!playerRef.value) {
         return null
       } else {

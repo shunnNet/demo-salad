@@ -5,12 +5,14 @@ export const thirdPartyScript = reactive({
   YT: false,
 })
 
+let loadYTIframe = null
+
 export const loadYTIframeApi = () => {
-  if (!process.browser) {
-    return Promise.resolve(null)
+  if (loadYTIframe) {
+    return loadYTIframe
   }
 
-  return new Promise((resolve) => {
+  loadYTIframe = new Promise((resolve) => {
     if (thirdPartyScript.YT) {
       resolve(window.YT)
     } else {
@@ -23,4 +25,6 @@ export const loadYTIframeApi = () => {
       }
     }
   })
+
+  return loadYTIframe
 }

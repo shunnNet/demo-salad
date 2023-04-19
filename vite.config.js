@@ -3,14 +3,27 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import svgLoader from 'vite-svg-loader'
 import htmlPlugin from 'vite-plugin-html-config'
+import autoprefixer from 'autoprefixer'
 
 const htmlOptions = {
-  title: 'The F2E 前端 & UI 修煉精神時光屋',
+  title: 'Demo - Digi Salad ',
 }
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgLoader(), htmlPlugin(htmlOptions)],
+  base: '/demo-salad/',
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          // treat all tags with a dash as custom elements
+          isCustomElement: (tag) => tag.includes('-'),
+        },
+      },
+    }),
+    svgLoader(),
+    htmlPlugin(htmlOptions),
+  ],
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
   },
@@ -21,6 +34,9 @@ export default defineConfig({
           @import "@/scss/env.scss";
         `,
       },
+    },
+    postcss: {
+      plugins: [autoprefixer()],
     },
   },
 })
